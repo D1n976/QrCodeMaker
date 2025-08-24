@@ -1,0 +1,62 @@
+﻿<Window x:Class="QrCoder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QrCoder" xmlns:viewmodels="clr-namespace:QrCoder.ViewModels" 
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="20">
+        <StackPanel>
+
+            <TextBlock Text="Генератор QR-кода" 
+                       FontSize="16" FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+
+            <TextBox Text="{Binding QrCodeData.Content, UpdateSourceTrigger=PropertyChanged}"
+                     Padding="10"
+                     FontSize="14"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Размер:" VerticalAlignment="Center"/>
+                <Slider Value="{Binding QrCodeData.Size}" 
+                        Minimum="100" Maximum="300" 
+                        Width="150"
+                        TickFrequency="10"/>
+                <TextBlock Text="{Binding QrCodeData.Size}" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <UniformGrid>
+                <Border BorderBrush="LightGray" BorderThickness="1" 
+                        Padding="10" HorizontalAlignment="Center"
+                        Background="White">
+                    <Image Source="{Binding QrCodeImage}" 
+                           Width="{Binding QrCodeData.Size}" 
+                           Height="{Binding QrCodeData.Size}"
+                           Stretch="Uniform"/>
+                </Border>
+                <StackPanel>
+                    <GroupBox Header="DarkColor&#xD;&#xA;">
+                        <StackPanel>
+                            <xctk:ColorCanvas x:Name="colorCanvas"
+                                        Height="150"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>DarkColor</TextBlock>
+                                <TextBox Text="{Binding QrCodeData.DarkColor}" VerticalAlignment="Stretch" Width="200"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>LightColor</TextBlock>
+                                <TextBox Text="{Binding QrCodeData.LightColor}" VerticalAlignment="Stretch" Width="200"/>
+                            </StackPanel>
+                            <Button Content="Сгенерировать QR-код" 
+                    Command="{Binding GenerateQrCodeCommand}"
+                    Padding="10" FontSize="14"
+                    HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </UniformGrid>
+        </StackPanel>
+    </Grid>
+</Window>
