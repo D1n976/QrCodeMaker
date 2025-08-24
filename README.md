@@ -33,7 +33,7 @@
 - **C# (.NET 8 или .NET Framework 4.7.2+)**
 - **WPF** (укажи, что использовал)
 - Библиотеки:
-  - [`CommunityToolkit.Mvvm`](https://github.com/CommunityToolkit/dotnet)  
+- [`CommunityToolkit.Mvvm`](https://github.com/CommunityToolkit/dotnet)  
   Современная реализация паттерна MVVM для .NET. Упрощает привязку данных, команды и навигацию в WPF-приложениях. Ранее известна как `Microsoft MVVM Toolkit`.
 
 - [`Extended.Wpf.Toolkit`](https://github.com/xceedsoftware/wpftoolkit)  
@@ -48,7 +48,7 @@
 - [`QRCoder.ImageSharp`](https://www.nuget.org/packages/QRCoder.ImageSharp/)  
   Официальное расширение `QRCoder` для интеграции с `ImageSharp`. Позволяет генерировать QR-изображения напрямую в формате `Image<Rgba32>` с поддержкой прозрачности и высокого качества.
   
-  - `System.Drawing.Common` — для обработки изображений
+- `System.Drawing.Common` — для обработки изображений
 - Поддержка **прозрачных PNG** (формат `PNG` с `Alpha`)
 - Кроссплатформенно (если .NET 6+ и не использует WinForms)
 
